@@ -26,4 +26,4 @@ variable "protocol" {
 variable "instance_type" {}
 variable "instance_name" {}
 variable "username" {}
-variable "private_key_path" {}
+# variable "private_key_path" {}

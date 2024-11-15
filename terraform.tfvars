@@ -4,3 +4,4 @@ environment_tag       = "dev"
 instance_type         = "t2.medium"
 username              = "ubuntu"
 security_groups_ports = [22, 80, 443, 8080]
+instance_name = "app_pwd"
