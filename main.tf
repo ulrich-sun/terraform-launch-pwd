@@ -18,6 +18,11 @@ locals {
   environment_tag      = var.environment_tag
   instance_name        = var.instance_name
 }
+module "keypair" {
+  source   = "./modules/keypair"
+  key_name = local.key_name
+  filename = local.filename
+}
 
 module "ec2" {
   source               = "./modules/ec2"
@@ -35,9 +40,4 @@ module "sg" {
   source               = "./modules/sg"
   security_groups_name = local.security_groups_name
   environment_tag      = local.environment_tag
-}
-module "keypair" {
-  source   = "./modules/keypair"
-  key_name = local.key_name
-  filename = local.filename
 }
