@@ -22,7 +22,7 @@ variable "protocol" {
 #variable "filename" {}
 
 #ec2
-variable "ami" {}
+# variable "ami" {}
 variable "instance_type" {}
 variable "instance_name" {}
 variable "username" {}
