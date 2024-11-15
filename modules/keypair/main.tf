@@ -1,6 +1,6 @@
 resource "aws_key_pair" "key_pwd" {
   key_name   = var.key_name
-  public_key = tls_private_key.name.public_key_openssh
+  public_key = tls_private_key.tls_key.public_key_openssh
 }
 
 resource "tls_private_key" "tls_key" {
@@ -10,6 +10,6 @@ resource "tls_private_key" "tls_key" {
 
 resource "local_file" "local_pwd" {
   filename        = var.filename
-  content         = tls_private_key.name.private_key_pem
+  content         = tls_private_key.tls_key.private_key_pem
   file_permission = "0400"
 }

@@ -23,7 +23,7 @@ module "ec2" {
   source               = "./modules/ec2"
   ami                  = local.ami_id
   instance_type        = local.instance_type
-  security_groups_name = module.sg.security_groups_name
+  security_groups_name = module.sg.sg_pwd_name
   key_name             = local.key_name
   username             = local.username
   private_key_path     = local.filename
