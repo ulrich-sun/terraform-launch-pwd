@@ -1,7 +1,10 @@
 #!/bin/bash 
 
 sudo yum update -y 
-sudo yum install go curl unzip git wget -y 
+sudo yum install curl unzip git wget -y 
+
+
+
 
 #Install and configure docker 
 curl -fsSL https://get.docker.com | sh - 
