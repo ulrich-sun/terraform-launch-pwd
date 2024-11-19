@@ -16,12 +16,14 @@ Ce projet utilise Terraform pour lancer une instance sur AWS. Ce fichier README 
    git clone https://github.com/ulrich-sun/terraform-launch-pwd.git
    cd terraform-launch-pwd
    ```
+   Choisir en fonction de votre système d'exploitation favoris
 
-2. **Modifiez le fichier `variables.tf` :**
+2. **Modifiez le fichier `variables.tf`  et le fichier bash `launch-pwd.sh`:**
 
    Vous pouvez personnaliser les variables dans ce fichier selon vos besoins, comme le type d'instance, la région, etc.
+   Vous pouvez personnaliser le depot github se trouvant dans ce script afin de le faire pointer vers votre repos a vous.
 
-3. **Initialisez Terraform :**
+4. **Initialisez Terraform :**
 
    Exécutez la commande suivante pour initialiser Terraform et télécharger les plugins nécessaires :
 
@@ -29,7 +31,7 @@ Ce projet utilise Terraform pour lancer une instance sur AWS. Ce fichier README 
    terraform init
    ```
 
-4. **Planifiez votre infrastructure :**
+5. **Planifiez votre infrastructure :**
 
    Utilisez la commande suivante pour voir les modifications qui seront apportées :
 
@@ -37,7 +39,7 @@ Ce projet utilise Terraform pour lancer une instance sur AWS. Ce fichier README 
    terraform plan
    ```
 
-5. **Appliquez les modifications :**
+6. **Appliquez les modifications :**
 
    Pour créer les ressources définies, exécutez :
 
