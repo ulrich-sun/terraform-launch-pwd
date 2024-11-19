@@ -1,15 +1,16 @@
-data "aws_ami" "ubuntu" {
+data "aws_ami" "centos" {
   most_recent = true
-  owners      = ["099720109477"]
+
+  owners = ["125523088429"]  # ID du propriétaire de l'image CentOS
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+    values = ["CentOS Linux 7 x86_64 HVM EBS *"]
   }
 }
 
 locals {
-  ami_id               = data.aws_ami.ubuntu.id
+  ami_id               = data.aws_ami.centos.id
   key_name             = var.key_name
   filename             = "./keypair/${var.key_name}.pem"
   username             = var.username
