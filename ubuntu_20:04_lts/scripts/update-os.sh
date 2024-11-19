@@ -11,8 +11,8 @@ sudo apt purge apparmor -y
 sudo apt auto-remove apparmor -y 
 
 #Installation de selinux
-sudo apt update
-sudo apt install selinux-basics selinux-policy-default auditd
+sudo apt update -y
+sudo apt install selinux-basics selinux-policy-default auditd -y
 sudo selinux-activate
 sudo setenforce 0
 
