@@ -1,16 +1,16 @@
-data "aws_ami" "centos" {
-  most_recent = true
+#data "aws_ami" "centos" {
+#  most_recent = true
 
-  owners = ["125523088429"]  # ID du propriétaire de l'image CentOS
+#  owners = ["125523088429"]  # ID du propriétaire de l'image CentOS
 
-  filter {
-    name   = "name"
-    values = ["CentOS Linux 7 x86_64 HVM EBS *"]
-  }
-}
+#  filter {
+#    name   = "name"
+#    values = ["CentOS Linux 7 x86_64 HVM EBS *"]
+#  }
+#}
 
 locals {
-  ami_id               = data.aws_ami.centos.id
+  ami_id               = "ami-0aedf6b1cb669b4c7"
   key_name             = var.key_name
   filename             = "./keypair/${var.key_name}.pem"
   username             = var.username
@@ -35,6 +35,7 @@ module "ec2" {
   private_key_path     = local.filename
   environment_tag      = local.environment_tag
   instance_name        = local.instance_name
+  depends_on [ module.keypair ]
 }
 
 module "sg" {
