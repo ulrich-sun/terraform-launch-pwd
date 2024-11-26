@@ -1,9 +1,11 @@
 #!/bin/bash 
+sudo sed -i -e 's/mirror.centos.org/vault.centos.org/g' \
+           -e 's/^#.*baseurl=http/baseurl=http/g' \
+           -e 's/^mirrorlist=http/#mirrorlist=http/g' \
+           /etc/yum.repos.d/*.repo
 
 sudo yum update -y 
 sudo yum install curl unzip git wget -y 
-
-
 
 
 #Install and configure docker 
