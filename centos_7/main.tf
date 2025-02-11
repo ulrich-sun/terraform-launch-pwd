@@ -35,7 +35,7 @@ module "ec2" {
   private_key_path     = local.filename
   environment_tag      = local.environment_tag
   instance_name        = local.instance_name
-  depends_on [ module.keypair ]
+  depends_on=[ module.keypair ]
 }
 
 module "sg" {

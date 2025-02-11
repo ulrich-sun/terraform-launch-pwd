@@ -9,18 +9,29 @@ resource "aws_instance" "app_pwd" {
     volume_type           = "gp2"
     encrypted             = true
     delete_on_termination = true
-  }
-
-  provisioner "remote-exec" {
-    connection {
+  } 
+  connection {
       type        = "ssh"
       user        = var.username
       private_key = file(var.private_key_path)
       host        = self.public_ip
-    }
-    scripts = ["./scripts/update-os.sh", "./scripts/launch-pwd.sh"]
   }
-
+  provisioner "file" {
+    source      = "./scripts/update-os.sh"
+    destination = "/tmp/update-os.sh"
+  }
+  provisioner "file" {
+    source      = "./scripts/launch-pwd.sh"
+    destination = "/tmp/launch-pwd.sh"
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo chmod +x /tmp/update-os.sh",
+      "sudo chmod +x /tmp/launch-pwd.sh",
+      "sudo /tmp/update-os.sh",
+      "sudo /tmp/launch-pwd.sh"
+    ]
+  }
   tags = {
     Environment = var.environment_tag
     Name        = var.instance_name
